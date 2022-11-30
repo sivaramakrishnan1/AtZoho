@@ -94,7 +94,7 @@ class conversion
 	
 	public int binToDec(int bin)
 	{
-		int dec = 0, lim = 1, pow = 1;
+		int dec = 0, pow = 1;
 		
 		while(bin > 0)
 		{
@@ -163,7 +163,7 @@ class conversion
 	
 	public int toOct(int dec)
 	{
-		int lim = 1, oct = 0, carry = 0, add = 0;
+		int lim = 1, oct = 0;
 		
 		while(dec > 0)
 		{
