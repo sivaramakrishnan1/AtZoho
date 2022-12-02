@@ -6,8 +6,8 @@ class random
 	{
 		Scanner s = new Scanner(System.in);		
 		String str = s.next();
-		
-		System.out.println(recPrint(new String(str)));
+		String rec = recPrint(new String(str));
+		System.out.println(str + " is scrambled to "+ rec + " so, " + str.equals(rec));
 		s.close();
 	}
 	
