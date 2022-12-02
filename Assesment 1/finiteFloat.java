@@ -6,6 +6,7 @@ class finiteFloat {
 		Scanner s = new Scanner(System.in);
 		double d = s.nextDouble();		
 		float f = (float)d;		
-		System.out.println((String.valueOf(f)).equals(String.valueOf(d)));		
+		System.out.println((String.valueOf(f)).equals(String.valueOf(d)));	
+		s.close();	
 	}
 }

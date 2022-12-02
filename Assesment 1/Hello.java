@@ -8,5 +8,6 @@ class Hello
 		Scanner s = new Scanner(System.in);		
 		yourName = s.next();		
 		System.out.println("Hi " + yourName + ", hello to you, and your world!");
+		s.close();
 	}
 }

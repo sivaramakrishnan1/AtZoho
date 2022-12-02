@@ -6,9 +6,6 @@ class grade {
 		System.out.println("Total number of students: ");
 		int tot_students = s.nextInt();
 		
-		System.out.println("Total number of boys: ");
-		int tot_boys = s.nextInt();
-		
 		System.out.println("Percentage of students who got A grade: ");
 		double percentage_graded_A = s.nextDouble();
 		
@@ -21,5 +18,6 @@ class grade {
 		
 		System.out.println("Girls who got A grade: ");
 		System.out.println((int)girls_graded_A);
+		s.close();
 	}
 }

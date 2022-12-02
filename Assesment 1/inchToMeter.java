@@ -8,6 +8,7 @@ class inchToMeter {
 		double inch = s.nextDouble();
 		
 		System.out.println("For the inch " + inch + ", equivalent meter is " + (inch *0.0254));
+		s.close();
 	}
 }	
 		

@@ -18,5 +18,6 @@ class addTwoToDigits {
 		}
 		
 		System.out.println(addedDigit);
+		s.close();
 	}
 }

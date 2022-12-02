@@ -12,5 +12,6 @@ class circle {
 		
 		System.out.println("Perimeter of the circle : " + perimeter);
 		System.out.println("Area of the circle : " + area);
+		s.close();
 	}
 }
