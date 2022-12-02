@@ -13,23 +13,24 @@ class random
 	
 	public static String recPrint(String str)
 	{
-		if(str.length() == 1)
+		if(str.length() <= 2)
 			return str;
 		
 		int slicePosition = giveRandomValue(0, str.length()-1);
 		String str1 = cut(str, 0, slicePosition);
-		String str2 = cut(str, slicePosition, str.length()-1);
-		if(giveRandomValue(0,2) == 0)
+		String str2 = cut(str, slicePosition+1, str.length()-1);
+
+		// System.out.println(str1 + " " + str2);
+
+		if(giveRandomValue(0,2) <= 1)
 			return recPrint(str2) + recPrint(str1);
-		
 		return recPrint(str1) + recPrint(str2);		
 	}
 	
 	public static String cut(String str, int start, int end)
 	{
 		String part = "";
-		for(int i = start ; i < end ; i++){
-			System.out.println(str.charAt(i));
+		for(int i = start ; i <= end ; i++){
 			part += str.charAt(i);
 		}
 		
@@ -39,12 +40,9 @@ class random
 	public static int giveRandomValue(int from, int to)
 	{
 		int r;
-		 do
+		do
 		{
-				
-			// r = (int)(Math.random() * 10);
-			r = (int)(Math.random() * (to - from)) + to;
-			System.out.println("Yup" + r + " " + from + "  "+ to);
+			r = (int)(Math.random() * 10);
 		}while(r < from || r > to );
 		
 		return r;

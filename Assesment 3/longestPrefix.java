@@ -3,9 +3,10 @@ import java.util.Scanner;
 class longestPrefix {
 	public static void main(String args[])
 	{
+		
 		Scanner s = new Scanner(System.in);
 		// String[] str = {"geeksforgeeks", "geeks", "geek", "geeker"};
-		String[] str = {"Hello", "world"};
+		String[] str = {"Geeks", "Gek"};
 		int k = -1;
 		for(int i=0 ; i< str.length; i++)
 		{
