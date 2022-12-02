@@ -18,11 +18,12 @@ public class perm {
 
 
     public static void permute(String str, int pos) {
-        System.out.print(str.charAt(pos));
+        
         for (int i = str.length(); i > 0; i--) {
             int temp = (i +  pos) % str.length();
-            if (i == pos)
-                continue;
+            if (i == pos){
+                System.out.print(str.charAt(pos));
+			}
             else {
                 System.out.print(str.charAt(temp));
             }
