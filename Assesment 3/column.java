@@ -7,26 +7,29 @@ class column {
 		int num = s.nextInt();
 		String col = "";
 		
-		if(num > 16384)
+		
+		if(num > 16385)
 		{
 			System.out.println("Invalid");
 			return;
 		}
-		System.out.println((26*26));
+		System.out.println(num + " " + col);
 		if(num > (26*26))
 		{
 			col += (char)((num / (26*26)) + 64);
-			num = num / (26*26);
-
+			num = num % (26*26);
+			System.out.println(num + " " + col);
 		}
-		else if(num > 26)
+		if(num > 26)
 		{
 			col += (char)((num / 26) + 64);
-			num = num / 26;
+			num = num % 26;
+			System.out.println(num + " " + col);
 		}
-		else 
+		if(num > 0) 
 		{
-			col += (char)((num) + 64);
+			col += (char)(num + 64);
+			// System.out.println(num + " " + col + " added");
 		}
 		
 		System.out.println(col);
