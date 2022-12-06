@@ -1,17 +1,16 @@
+import java.util.Scanner;
+
 public class temp
-{
-    final static short x = 2;
-    
+{    
 	public static void main(String[] args) {
 		
-		for(int i =0 ; i < 3 ; i++)
-		{
-		    switch(i)
-		    {
-		        case x :System.out.println("0");
-		            case x-1:System.out.println("1");
-		                case x-2:System.out.println("2");
-		    }
-		}
+		Scanner s = new Scanner(System.in);
+		
+		String str = s.next();
+		
+		for(int i=0 ; i < str.length();i++)
+			System.out.println(str.charAt(i) + 1);
+		
+		s.close();
 	}
 }
