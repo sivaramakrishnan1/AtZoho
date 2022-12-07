@@ -15,7 +15,7 @@ class recRemoveAdjacent
 	
 	public static StringBuffer recrem(int pos)
 	{
-		if(pos < 0) return new StringBuffer("");
+		if(pos < 0 || str.length() == 0) return new StringBuffer("");
 		if(pos == 0)
 		{
 			if(str.charAt(0) == str.charAt(1))
