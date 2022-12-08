@@ -1,4 +1,4 @@
-import java.util.Scaner;
+import java.util.Scanner;
 
 class ComplexDemo
 {
@@ -6,9 +6,11 @@ class ComplexDemo
 	{
 		Scanner s = new Scanner(System.in);
 		
-		Complex c1 = new Complex();
-		Complex c2 = new Complex();
+		Complex c1 = new Complex(5, 5);
+		Complex c2 = new Complex(1, 1);
 		
+		c1.divide(c2);
+		System.out.println(c1.toString());
 		s.close();
 	}
 }

@@ -39,5 +39,29 @@ class Complex
 	}
 	
 	public void multiply(Complex c) {
+		System.out.println(real + " " + imag);
+		double r = (real*c.getRealPart()) - (imag * c.getImaginaryPart());
+		double i = ((imag * c.getRealPart() + real*c.getImaginaryPart()));
+		this.setRealPart(r);
+		this.setImaginaryPart(i);
+		System.out.println(real + " " + imag);
+	} 
+	
+	public void divide(Complex c) {
+		multiply(c);
+		double div = (c.getRealPart() * c.getRealPart()) + (c.getImaginaryPart() * c.getImaginaryPart());
+		double r = real / div;
+		double i = imag / div;
+
+		setRealPart(i);
+		setImaginaryPart(r);
+		System.out.println(real + " " + imag + " " + div);
+	}
 		
-		
+	public String toString() {
+		String res = "";
+		if(real != 0) res += real + " " ;
+		if(imag != 0) res += imag + "i";
+		return res;
+	}
+}
