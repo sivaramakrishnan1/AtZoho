@@ -1,7 +1,8 @@
 package BookShop;
 
 // java bookshop.Interface.Interface
-import BookShop.Data;
+import BookShop.Books;
+import BookShop.Album;
 import java.util.Scanner;
 
  class Interface
@@ -17,34 +18,52 @@ import java.util.Scanner;
 			System.out.println("1. Book 2. Album");
 			if(s.nextInt() == 1)
 			{
-				System.out.println("Enter the Title, Author name, Genre and rate of the book:");
-				String name = s.next();
-				String author = s.next();
-				String genre = s.next();
-				System.out.println(name +  genre + author);
+				s.nextLine();
+				System.out.println("\nEnter the Title: ");
+				String name = s.nextLine();
+				System.out.println("\nEnter the Author: ");
+				String author = s.nextLine();
+				System.out.println("\nEnter the Genre: ");
+				String genre = s.nextLine();
+				System.out.println("\nEnter the Price: ");
 				double rate = s.nextDouble();
 
 				bookData[b++] = new Books(name, author, genre, rate);
 			}
 			else 
 			{
-				System.out.println("Enter the Title, Artist name, Genre, duration and rate of the album:");
-				String name = s.nextLine(), artist = s.nextLine(), genre = s.nextLine();
-				double duration = s.nextDouble(), rate = s.nextDouble();
+				s.nextLine();
+				System.out.println("Enter the Title: ");
+				String name = s.nextLine();
+				System.out.println("\nEnter the Author: ");
+				String artist = s.nextLine();
+				System.out.println("\nEnter the Genre: ");
+				String genre = s.nextLine();
+				System.out.println("\nEnter the Duration: ");
+				double duration = s.nextDouble();
+				System.out.println("\nEnter the Price: ");
+				double rate = s.nextDouble();
 
-				albumData[a++] = new Album(name, artist, genre, duration, rate);
+				albumData[a++] = new Album(name, artist, genre, rate, duration);
 			}
 		}
-
-		System.out.println("Books ... ");
+		String temp = "=========================================";
+		
+		System.out.format("%10s", temp);
+		System.out.println("\nBooks ... ");
 		for (int i = 0; bookData[i] != null; i++) {
 			System.out.println(bookData[i].toString());
 		}
 
-		System.out.println("Albums ... ");
+		System.out.format("%10s", temp);
+
+		System.out.println("\n\nAlbums ... ");
 		for (int i = 0; albumData[i] != null; i++) {
 			System.out.println(albumData[i].toString());
 		}
+		
+		System.out.format("%10s", temp);
+		
 		s.close();
 	}
 }
