@@ -1,4 +1,4 @@
-package bookshop.Business;
+package BookShop;
 
 class Business 
 {

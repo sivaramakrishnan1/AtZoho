@@ -1,50 +1,68 @@
-package bookshop.Data;
+package BookShop;
 
 public class Data {
 	static int id = 1;
+	private String title, genre;
+	private double rate;
 
-	class Books
+	Data(String title, String genre, double rate)
 	{
-		private int itemId;
-		private String title, authors, genre;
-		private double rate;
-		
-		Books(String title, String authors, String genre, double rate)
-		{
-			itemId = id++;
-			this.title = title;
-			this.authors = authors;
-			this.genre = genre;
-			this.rate = rate;
-		}
-		
-		public String toString()
-		{
-			String ret = "(" + itemId + ") " + "\"" + title + "\" by " + authors + ", " + genre + ", $" + rate;
-			return ret;
-		}
+		this.title = title;
+		this.genre = genre;
+		this.rate = rate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public double getRate() {
+		return rate;
+	}
+}
+
+class Books extends Data
+{
+	private int itemId;
+	private String authors;
+	
+	Books(String title, String authors, String genre, double rate)
+	{
+		super(title, genre, rate);
+		itemId = id++;
+		this.authors = authors;
 	}
 	
-	class Album
+	@Override
+	public String toString()
 	{
-		private int itemId;
-		private String title, artist, genre;
-		private double duration, rate;
-		
-		Album(String title, String artist, String genre, double rate, double duration)
-		{
-			itemId = id++;
-			this.title = title;
-			this.artist = artist;
-			this.genre = genre;
-			this.rate = rate;
-			this.duration = duration;
-		}
-		
-		public String toString()
-		{
-			String ret = "(" + itemId + ") " + "\"" + title + "\" by " + artist + ", " + duration + " minutes of " + genre + ", $" + rate;
-			return ret;
-		}
+		String ret = "(" + itemId + ") " + "\"" + getTitle() + "\" by " + authors + ", " + getGenre() + ", $" + getRate();
+		return ret;
+	}
+}
+
+class Album extends Data
+{
+	private int itemId;
+	private String artist;
+	private double duration;
+	
+	Album(String title, String artist, String genre, double rate, double duration)
+	{
+		super(title, genre, rate);
+		itemId = id++;
+		this.artist = artist;
+		this.duration = duration;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String ret = "(" + itemId + ") " + "\"" + getTitle() + "\" by " + artist + ", " + duration + " minutes of " + getGenre() + ", $" + getRate();
+		return ret;
 	}
 }

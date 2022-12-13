@@ -1,4 +1,4 @@
-package bookshop.Utils;
+package BookShop;
 
 class Util {
 	
