@@ -1,26 +1,16 @@
-import java.util.Scanner;
+// import java.util.Scanner;
+import java.util.*;
 
-public abstract class temp
-{    
-	static Scanner s = new Scanner(System.in);
-	public static void main(String[] args) {
-		System.out.println("Helloooo");	
-		s.close();
-	}
-	
-	public static void getValue() {
-		System.out.println("parent");
-	}
-}
-
-class copy extends temp{	
-
-	public static void main(String[] args) {
-		getValue();	
-		s.close();
-	}
+class temp
+{
+	public static void main(String args[])
+	{
+		int a = 10;
 		
-	public static void getValue() {
-		System.out.println("child");
+		if(a % 2 == 0)
+		{
+			System.out.println("Even");
+		}
+		System.out.println("Number");
 	}
 }
