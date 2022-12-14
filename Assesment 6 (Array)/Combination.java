@@ -9,10 +9,9 @@ class Combination
 	public static void main(String args[])
 	{
 		Scanner s = new Scanner(System.in);
-		arr = new int[]{2, 3, 6, 7};
+		arr = new int[]{2, 3, 4, 8};
 		target = 8;
 		combination(0, 0, "");
-		
 		s.close();
 	}
 	
@@ -21,17 +20,13 @@ class Combination
 		if(sum == target)
 		{
 			System.out.println(str);
-			sum = 0;
-			str = "";
-			combination(start + 1, sum, str);
+			return;
 		}
-		else if(start < arr.length && sum + arr[start] < target)
+		else if(start < arr.length && sum < target)
 		{
-			str += arr[start];
-			// System.out.println(start + " " + sum + " " + str);
-			combination(start, sum + arr[start], str);
-			combination(start, sum + arr[start+1], str);
-			combination(start + 1, sum, str);
+			combination(start, sum + arr[start], str + arr[start] + " ");
+			if(start < arr.length - 1)
+				combination(start + 1, sum, str);
 		}
 	}
 }
