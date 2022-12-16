@@ -12,8 +12,7 @@ class TreeSetExplaination
 		l.add(1);
 		l.add(2);
 		
-		System.out.println(l);	
-		TreeSet<Integer> t = new TreeSet<>();
+		TreeSet<Integer> t = new TreeSet<>(l);
 		
 		System.out.println("Returns first element: " + t.first());
 		System.out.println("Returns last element: " + t.last());
