@@ -51,7 +51,7 @@ class expression
 				val *= nums[n];
 				break;
 			
-			case './ :
+			case '.' :
 				val /= nums[n];
 				break;
 				
@@ -61,5 +61,6 @@ class expression
 			}
 		}
 		System.out.println(val);
+		s.close();
 	}
 }
