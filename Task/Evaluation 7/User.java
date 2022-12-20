@@ -7,16 +7,6 @@ public class User extends Admin
 		super(id, name, password);
 	}
 	
-	public void bookTickets()
-	{
-		
-	}
-	
-	public void cancelTicket()
-	{
-		
-	}
-	
 	public void printTickets()
 	{
 		

@@ -47,7 +47,7 @@ public class Admin {
 
             if (RailwayReservation.waitingList.size() < 9) {
                 if (RailwayReservation.RAC.size() < 19) {
-                    if (tickets.size < 64) {
+                    if (tickets.size() < 64) {
                         tickets.get(pos).bookThisTicket(name, age, gender);
                     } else
                         RailwayReservation.RAC.get(pos).bookThisTicket(name, age, gender);
