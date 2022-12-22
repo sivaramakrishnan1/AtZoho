@@ -1,0 +1,4 @@
+     TN-23-1357            Car         pr_1_4         Parked      22/12/2022 15:14:42
+     TN-47-2467          Truck         pr_1_1         Parked      22/12/2022 15:14:42
+     TN-23-1357            Car         pr_1_4       Unparked      22/12/2022 15:14:42
+     TN-47-2467          Truck         pr_1_1       Unparked      22/12/2022 15:14:42
