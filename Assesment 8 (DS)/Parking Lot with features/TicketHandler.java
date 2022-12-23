@@ -16,7 +16,7 @@ public class TicketHandler
 		try 
 		{
 			FileWriter writer = new FileWriter("Parking//Tickets//log.txt", true);
-			writer.write( String.format("%15s%15s%15s%15s%25s\n", number, type, ticket, activity, formatter.format(date)));
+			writer.write( String.format("%-15s%-15s%-15s%-15s%-30s\n", ticket, number, type, activity, formatter.format(date)));
 			writer.close();
 		} 
 		catch(IOException e) 
@@ -31,7 +31,7 @@ public class TicketHandler
 		try 
 		{
 			FileWriter writer = new FileWriter("Parking//Tickets//log.txt", true);
-			writer.write( String.format("%15s%15s%15s%15s%25s\n", number, type, ticket, activity, formatter.format(date)));
+			writer.write( String.format("%-15s%-15s%-15s%-15s%-30s\n", ticket, number, type, activity, formatter.format(date)));
 			writer.close();
 		} 
 		catch(IOException e) 
