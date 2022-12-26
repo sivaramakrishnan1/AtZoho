@@ -1,32 +1,15 @@
-class Mammal
-{
-	public void method(Mammal m)
-	{
-		System.out.println("At top");
-	}
-}
+/**
+ * 
+ */
+import java.util.Scanner;
 
-class Cattle extends Mammal
-{
-	public void method(Cattle c)
-	{
-		System.out.println("At cattle");
-	}
-}
+public class temp {
 
-class Horse extends Cattle
-{
-	public void method(Horse e)
-	{
-		System.out.println("At horse");
-	}
-}
-
-class temp{
-	public static void main(String args[])
-	{
-		Cattle c = new Horse();
-		Mammal h = new Horse();
-		c.method(h);
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String str = s.next();
+		String regex = "[a-zA-Z0-9_+.]*[@]{1}[a-zA-Z0-9]*\\.[a-zA-Z]{2, 5}$";
+		System.out.println(str.matches(regex));
+		s.close();
 	}
 }
