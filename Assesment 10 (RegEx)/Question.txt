@@ -1,0 +1,26 @@
+Task 1 (Regex)
+
+1(L1).Write a Java program to check whether a string contains only a certain set of characters (in this case a-z, A-Z and 0-9).
+
+2(L1).Write a Java program that matches a string that has a p followed by zero or more q's.
+
+3(L2).Write a Java program to find sequences of lowercase letters joined with a underscore.
+
+4(L2).Write a Java program that matches a string that has a 'p' followed by anything, ending in 'q'.
+
+5(L3). Write a Java program that matches a word containing 'g', not at the start or end of the word.
+
+6(L1)Write a Java program to match a string that contains only upper and lowercase letters, numbers, and underscores.
+
+7(L3). Write a Java program to remove leading zeros from a given IP address.
+
+8(L2)Write a Java program to find the word Python in a given string, if the word Python present in the string return Java otherwise return C++. Ignore case-sensitive.
+
+9(L2)Write a Java program to remove all the vowels of a given string. Return the new string.
+
+10(L2). Write a Java program to count the number of decimal places in a given number.
+
+11(L3). Write a Java program to validate a personal identification number (PIN). Assume the length of a PIN number is 4, 6 or 8.
+
+0000123
+123
