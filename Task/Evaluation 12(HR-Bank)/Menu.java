@@ -27,7 +27,7 @@ class Menu
 		
 		loop : while(true) {
 			Scanner s = new Scanner(System.in);
-			System.out.println("Login\n1. New Account\n2. Existing account");
+			System.out.println("Login\n1. New Account\n2. Existing account\n3. Exit");
 			choice = s.nextInt();
 			
 			switch(choice)
@@ -63,6 +63,7 @@ class Menu
 						System.out.println("USER_NOT_FOUND");
 						break;
 					}
+					
 					System.out.print("Enter Password : ");
 					String password = String.valueOf(c.readPassword());
 					
@@ -76,6 +77,7 @@ class Menu
 				}
 				case 3 :
 				{
+					System.out.println("See you later");
 					s.close();
 					break loop;
 				}
@@ -92,7 +94,7 @@ class Menu
 
 		loop : while(true)
 		{
-			System.out.println("\nMenu : \n1. Withdrawal\n2. Deposit\n3. Transfer\n4. View balance\n5. Change Password\6. Exit");
+			System.out.println("\nMenu : \n1. Withdrawal\n2. Deposit\n3. Transfer\n4. View balance\n5. Change Password\n6. Exit");
 			choice = s.nextInt();
 
 			bank.updateToFile();
@@ -114,8 +116,15 @@ class Menu
 				}
 				
 				case 3 : {
-					System.out.println("Enter receiver ID");
-					int recId = s.nextInt();
+					System.out.println("Enter receiver account number");
+					int recId = bank.idOfAccountNumber(s.nextInt());
+					
+					if(id == -1)
+					{
+						System.out.println("USER_NOT_FOUND");
+						break;
+					}
+					
 					System.out.println("Enter amount to transfer");
 					float amount = s.nextFloat();
 					bank.transfer(id, recId, amount);
