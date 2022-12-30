@@ -13,7 +13,7 @@ class Bank
 		
 		users.add(new Account(Integer.parseInt(data[0]), Integer.parseInt(data[1]), data[2], data[3], Float.parseFloat(data[4])));
 		users.get(users.size() - 1).transactionReader();
-		++permId;
+		permId++;
 	}
 	
 	public boolean addAccount(int accNo, String name, String password)
@@ -21,7 +21,7 @@ class Bank
 		// checking another account with same account number
 		if(idOfAccountNumber(accNo) != -1) return false;
 		
-		users.add(new Account(++permId, accNo, name, password));
+		users.add(new Account(permId++, accNo, name, password));
 		
 		try {
 			updateToFile();
@@ -34,6 +34,8 @@ class Bank
 	
 	public int idOfAccountNumber(int accountNumber)
 	{
+		if(users.isEmpty()) return -1;
+
 		for(Account a : users)
 		{
 			if(a.getAccountNumber() == accountNumber) return a.getId();
@@ -78,9 +80,9 @@ class Bank
 		writer.close();
 	}
 	
-	public boolean setPassword(int id, String password)
+	public boolean setPassword(int id, String password) throws Exception
 	{
-		users.get(id).setPassword(password)
+		return users.get(id).setPassword(password);
 	}
 	
 	public boolean authenticate(int id, String password)

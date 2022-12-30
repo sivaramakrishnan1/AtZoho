@@ -10,6 +10,8 @@ class Menu
 	{
 		Scanner reader = new Scanner(new File("bank_db.txt"));
 		
+		if(reader.hasNext()) reader.nextLine();
+
 		while(reader.hasNext()) {
 			String str = reader.nextLine();
 			bank.initialize(str);
@@ -44,7 +46,7 @@ class Menu
 						if(bank.addAccount(accntNo, name, password))
 							System.out.println("Account created");
 						else
-							ystem.out.println("Account not created");
+							System.out.println("Account not created");
 						break;
 					}
 					System.out.println("Account not created");
@@ -56,6 +58,11 @@ class Menu
 					System.out.println("User Login\nEnter Account number");
 					int id = bank.idOfAccountNumber(s.nextInt()); // getting id of the account number
 					
+					if(id == -1)
+					{
+						System.out.println("USER_NOT_FOUND");
+						break;
+					}
 					System.out.print("Enter Password : ");
 					String password = String.valueOf(c.readPassword());
 					
@@ -124,7 +131,7 @@ class Menu
 					String password = s.next();
 					
 					if(password.equals(s.next()))
-						bank.setPassword(password);
+						bank.setPassword(id, password);
 					else
 						System.out.println("PasswordMismatch: Password not updated");
 					break;

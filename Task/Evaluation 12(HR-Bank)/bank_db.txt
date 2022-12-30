@@ -1,0 +1,3 @@
+BANK DATABASE
+1 10001 siva rxfsuz 10000.0
+1 123 siva rxfsuz 10000.0

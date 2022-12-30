@@ -45,13 +45,13 @@ public class Account
 		try 
 		{
 			if(balance + val < 1000) {
-				throw new MinimumBalanceException(balance)
-				return false;
+				throw new MinimumBalanceException(balance);
 			}
 			this.balance += val;
 		} catch(MinimumBalanceException e)
 		{
-			System.out.println(e)
+			System.out.println(e);
+			return false;
 		}
 		
 		try {
@@ -98,15 +98,15 @@ public class Account
 		return this.balance;
 	}
 	
-	public void setPassword(String password) throws Exception
+	public boolean setPassword(String password) throws Exception
 	{
 		this.encPwd = encryptPassword(password);
-		
 		try {
 			updateFile("Password change");
 		} catch(Exception e) {
 			System.out.println("FILE_UPDATE_FAILED"); 
 		} 
+		return true;
 	}
 	
 	public String toReadableString(String message)
