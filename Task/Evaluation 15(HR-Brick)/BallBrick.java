@@ -46,7 +46,8 @@ class BallBrick
 		}
 		System.out.println();
 		
-		do {
+		do 
+		{
 			System.out.print("Enter the brick's position and the brick type :");
 			int posx = s.nextInt(), posy = s.nextInt();
 			String weight = s.next();
