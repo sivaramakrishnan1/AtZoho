@@ -25,11 +25,11 @@ public class Menu implements Serializable {
 	
 	Scanner s = new Scanner(System.in);
 	
-	static {
-		users.add(new User("Siva", "Siva101"));
+	/*
+	    users.add(new User("Siva", "Siva101"));
 		admins.add(new Admin("Avis", "Avis101"));
 		agencies.add(new Agency("Rama", "Amar"));
-	}
+	 */
 
 	public static void login() {
 		Scanner s = new Scanner(System.in);
@@ -86,7 +86,7 @@ public class Menu implements Serializable {
 
 				for (int i = 0; i < agencies.size(); i++) {
 					if (agencies.get(i).getUsername().equals(username) && agencies.get(i).authenticate(password)) {
-						m.agencyLogin(i);
+						m.agencyLogin(agencies.get(i));
 						break;
 					} else if (agencies.get(i).getUsername().equals(username)) {
 						System.out.println("The username/password you entered is not matching");
@@ -164,12 +164,32 @@ public class Menu implements Serializable {
 		
 	}
 
-	private void agencyLogin(int i) {
+	private void agencyLogin(Agency a) {
+		int choice = 0;
 		
+		loop : while(true)
+		{
+			System.out.println("\n\t1. Add bus\n\t4. Exit");
+			choice = s.nextInt();
+			
+			switch (choice) {
+			case 1: {
+				addBus(a);
+				break;
+			}
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + choice);
+			}
+		}
 	}
 
 	private void adminLogin(int i) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public boolean addBus(Agency a)
+	{
 		
 	}
 
@@ -193,15 +213,15 @@ public class Menu implements Serializable {
 	{
 		ObjectInputStream reader;
 		try {
-			reader = new ObjectInputStream(new FileInputStream("users.tmp"));
+			reader = new ObjectInputStream(new FileInputStream("src/zohobus/db/users.tmp"));
 			users = (List<User>)reader.readObject();
 			reader.close();
 			
-			reader = new ObjectInputStream(new FileInputStream("admins.tmp"));
+			reader = new ObjectInputStream(new FileInputStream("src/zohobus/db/admins.tmp"));
 			admins = (List<Admin>)reader.readObject();
 			reader.close();
 			
-			reader = new ObjectInputStream(new FileInputStream("agencies.tmp"));
+			reader = new ObjectInputStream(new FileInputStream("src/zohobus/db/agencies.tmp"));
 			agencies = (List<Agency>)reader.readObject();
 			reader.close();
 			
@@ -215,13 +235,13 @@ public class Menu implements Serializable {
 	{
 		ObjectOutputStream writer;
 		try {
-			writer = new ObjectOutputStream(new FileOutputStream("users.tmp"));
+			writer = new ObjectOutputStream(new FileOutputStream("src/zohobus/db/users.tmp"));
 			writer.writeObject(users);
 			writer.close();
-			writer = new ObjectOutputStream(new FileOutputStream("admins.tmp"));
+			writer = new ObjectOutputStream(new FileOutputStream("src/zohobus/db/admins.tmp"));
 			writer.writeObject(admins);
 			writer.close();
-			writer = new ObjectOutputStream(new FileOutputStream("agencies.tmp"));
+			writer = new ObjectOutputStream(new FileOutputStream("src/zohobus/db/agencies.tmp"));
 			writer.writeObject(agencies);
 			writer.close();
 			
