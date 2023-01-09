@@ -1,13 +1,16 @@
-package ZohoBus;
+package zohobus;
 
-import ZohoBus.Accounts.User;
+import java.io.Serializable;
 
-public class Ticket {
+import zohobus.accounts.User;
+
+public class Ticket implements Serializable {
 	private String from, to, date;
 	private int seatno;
 	private User bookedFor;
+	private float fare;
 
-	Ticket(String from, String to, String date, int seatno, User user)
+	public Ticket(String from, String to, String date, int seatno, float fare, User user)
 	{
 		this.from = from;
 		this.to = to;
