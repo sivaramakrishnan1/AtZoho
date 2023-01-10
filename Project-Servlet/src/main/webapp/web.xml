@@ -1,0 +1,19 @@
+<web-app>  
+  
+<servlet>  
+<servlet-name>Project</servlet-name>  
+<jsp-file>/question2.jsp</jsp-file>  
+  
+<init-param>  
+<param-name>date</param-name>  
+<param-value><%= java.util.Calendar.getInstance().getTime() %></param-value>  
+</init-param>  
+  
+</servlet>  
+  
+<servlet-mapping>  
+<servlet-name>sonoojaiswal</servlet-name>  
+<url-pattern>/welcome</url-pattern>  
+</servlet-mapping>  
+  
+</web-app>  
