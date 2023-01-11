@@ -1,19 +1,6 @@
-<web-app>  
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   
-<servlet>  
-<servlet-name>Project</servlet-name>  
-<jsp-file>/question2.jsp</jsp-file>  
+
   
-<init-param>  
-<param-name>date</param-name>  
-<param-value><%= java.util.Calendar.getInstance().getTime() %></param-value>  
-</init-param>  
-  
-</servlet>  
-  
-<servlet-mapping>  
-<servlet-name>sonoojaiswal</servlet-name>  
-<url-pattern>/welcome</url-pattern>  
-</servlet-mapping>  
-  
-</web-app>  
+</web-app>
