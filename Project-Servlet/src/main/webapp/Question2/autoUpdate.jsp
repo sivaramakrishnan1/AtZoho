@@ -1,9 +1,10 @@
+<%@page import="jakarta.servlet.http.HttpServletResponse"%>
 <%@page import="java.net.HttpURLConnection"%>
 <%@page import="jakarta.servlet.http.HttpServletRequest"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.time.LocalDateTime"%>
-<%@page import="java.util.net.*"%>
+
 <%@page import="com.myservlet.autoUpdate"%>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -50,6 +51,13 @@
 
 <body>
 			<div class="out">
+			<% 
+				autoUpdate au = new autoUpdate();
+				HttpServletRequest req = ;
+				HttpServletResponse res = null;
+				
+				au.getDateTime(req, res);
+			%>
             ${date}
             ${month}
             ${year}
