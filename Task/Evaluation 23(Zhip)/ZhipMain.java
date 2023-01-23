@@ -1,5 +1,5 @@
-package Zhip;
-import Zhip.Portal;
+package zhip;
+import zhip.Portal;
 
 public class ZhipMain
 {

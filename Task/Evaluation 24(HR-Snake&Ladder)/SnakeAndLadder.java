@@ -28,6 +28,7 @@ class SnakeAndLadder
 			printBoard();
 			System.out.println("\n\nPlayer "+ (char)(pos % players.length + 'A') + " move : ");
 			int roll = rollDice();
+			Thread.sleep(500);
 			if(roll == 0) break;
 			else if(roll > 6 || roll < 1) continue;
 			

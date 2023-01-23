@@ -1,6 +1,6 @@
-package Zhip;
+package zhip;
 
-import Zhip.user.User;
+import zhip.user.User;
 import java.util.*;
 import java.io.*;
 
