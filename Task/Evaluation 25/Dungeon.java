@@ -16,13 +16,37 @@ public class Dungeon {
         int[][] arr = {{-2,-3,3},{-5,-10,1},{10,30,5}};
 
         System.out.println(d.calculateMinimumHP(arr));
-        ;
     }
 
     static int minHP = Integer.MAX_VALUE;
     static String path = "";
 
     
+	public int calculateMinimumHP(int[][] dungeon)
+	{
+		int[][] dp = new int[dungeon.length][dungeon[0].length];
+		
+		for(int i = dungeon.length -1 ; i > -1 ; i--)
+			for(int j = dungeon[0].length -1 ; j > -1 ; j--)
+				if(i == dungeon.length-1 && j == dungeon[0].length-1)
+					dp[i][j] = (dungeon[i][j] < 0) ? dungeon[i][j] : 0;
+
+				else if(i == dungeon.length-1)
+					dp[i][j] = (dungeon[i][j] + dp[i][j+1] < 0) ? dungeon[i][j] + dp[i][j+1] : 0;
+
+				else if(j == dungeon[0].length-1)
+					dp[i][j] = (dungeon[i][j] + dp[i+1][j] < 0) ? dungeon[i][j] + dp[i+1][j] : 0;
+
+				else
+				{
+					int max = (dp[i][j+1] < dp[i+1][j]) ? dp[i+1][j] : dp[i][j+1];
+					
+					if(max + dungeon[i][j] > 0) dp[i][j] = 0;
+					else dp[i][j] = max + dungeon[i][j] ;
+				}
+		
+		return 1-dp[0][0];
+	}
     
     // top-to-bottom approach
 

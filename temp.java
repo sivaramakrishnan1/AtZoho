@@ -2,30 +2,22 @@ import java.util.*;
 import java.io.*;
 
 class temp {
-	public static void main(String args[])  throws IOException, InterruptedException
+	public static void main(String args[])
 	{
-		for(int i = 1 ; i <= 50 ; i++)
-		{
-			
-			Thread.sleep(50);
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-			/* for(int j = 0 ; j <= i ; j++)
-			{
-				for(int k = 0 ; k <= j ; k++)
-				{
-						System.out.print(k + " ");
-				}
-				System.out.println();
-			} */
-			
-			// / - \ |
-			switch(i % 4)
-			{
-				case 0: System.out.println("\n\n<");break;
-				case 1: System.out.println("\n\n^");break;
-				case 2: System.out.println("\n\n>");break;
-				case 3: System.out.println("\n\nv");break;
-			}			
-		}
+		temp t = new temp();
+		System.out.println(t.lengthOfLongestSubstring("abcabcbb"));
 	}
+	
+	public int lengthOfLongestSubstring(String s) {
+		int max = -1;
+        int front = 0, end = 1;
+		
+		while(front < s.length())
+		{
+			int pos = 
+			while()
+		}
+		
+		return max;
+    }
 }
