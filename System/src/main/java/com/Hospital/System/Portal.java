@@ -14,7 +14,7 @@ public class Portal {
 	public void login() {
 		out: while (true) {
 			System.out.println("\n\t\tHospital System" + "\n\t\t1. Admin login" + "\n\t\t2. Doctor login "
-					+ "\n\t\t3. Receptionist login");
+					+ "\n\t\t3. Receptionist login" + "\n\t\t4. Exit");
 
 			switch (s.nextInt()) {
 			case 1:
@@ -24,7 +24,6 @@ public class Portal {
 				System.out.println("Enter password : ");
 				String password = s.next();
 
-				
 				if (db.authenticate("admin", username, password) != -1)
 					adminPortal();
 				else
@@ -60,8 +59,8 @@ public class Portal {
 				break;
 			case 4:
 				break out;
-				default : 
-					System.out.println("\nInvalid choice\n");
+			default:
+				System.out.println("\nInvalid choice\n");
 			}
 		}
 	}
@@ -120,7 +119,7 @@ public class Portal {
 				db.printAppointments(id);
 				break;
 			case 2:
-//				db.finishAppointments(id);
+				db.updateAppointment(id, "'VISITED'");
 				break;
 			case 3:
 				break out;
@@ -136,16 +135,27 @@ public class Portal {
 			System.out.println("1. View all appointments");
 			System.out.println("2. Book appointment");
 			System.out.println("3. Cancel appointment");
-			System.out.println("4. ");
-			
+			System.out.println("4. View All Bill");
+			System.out.println("5. Pay Bill");
+			System.out.println("0. Exit");
+
 			switch (s.nextInt()) {
 			case 1:
 				db.printAppointments();
 				break;
 			case 2:
-//				db.finishAppointments(id);
+				db.createAppointment();
 				break;
 			case 3:
+				db.updateAppointment(id, "'CANCEL'");
+				break;
+			case 4:
+				db.printBills();
+				break;
+			case 5 :
+				db.payBills();
+				break;
+			case 0:
 				break out;
 			default:
 				System.out.println("Invalid choice");
