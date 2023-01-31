@@ -1,0 +1,368 @@
+There are n balls placed on a 1-dimensional axis with each of them moving with the same non-zero speed. direction[i] represents the direction in which the ith ball is moving, with -1 meaning that it is moving to the left and 1 meaning it is moving to the right. The strength of the ith ball is described by strength[i]. If 2 balls collide, the one with the higher strength destroys the smaller one. If both have the same strength, both are destroyed. Return a list of the indices of the balls that remain after all the collisions have occurred, in ascending order.
+
+Note that the arrays direction and strength are 0-indexed. 
+
+Example
+direction = [1, -1]
+strength = [2, 1]
+
+The number of balls n = 2. The balls are listed in order of occurrence from left to right, so ball 0 is somewhere to the left of ball 1. Ball 0 is moving to the right and ball 1 is moving to the left. The balls will collide at some point and the ball with the higher strength, ball 0, remains. Return [0] as the answer.
+
+Sample Case 0
+Sample Input For Custom Testing
+
+3 - the number of balls n = 3
+1 - direction = [1, -1, 1]
+-1
+1
+5 - strength = [5, 3, 1]
+3
+1
+
+Sample Output
+
+0 
+2
+Explanation
+
+The first and the third balls are moving right and the second ball is moving left. The first and the second balls will collide at some point and the ball with higher strength, ball 0, remains. The third ball does not collide with any ball.
+
+Sample Case 1
+Sample Input
+
+2 - the number of balls n = 2
+1 - direction = [1, 1]
+1
+3 - strength = [3, 4]
+4
+Sample Output
+
+0 
+1
+Explanation
+
+Both balls are moving to the right at the same speed so they do not collide.
+
+===============================================================================
+
+Divisibility of Strings
+Given two strings, s and t, create a function that operates per the following rules:
+
+Find whether string s is divisible by string t.  String s divisible by string t if string t can be concatenated some number of times to obtain the string s.
+If s is divisible, find the smallest string, u, such that it can be concatenated some number of times to obtain both s and t and also find the number of times u is repeated to get the string s and t.
+If it is not divisible, set the return value to -1.
+Return the length of the string u or -1.
+ 
+Example 1
+
+s = 'bcdbcdbcdbcd'
+
+t = 'bcdbcd'
+
+Sample Output
+
+u = 'bcd' and its length is 3
+
+The number of times u is concatenated to get the string s and t is 4 and 2.
+
+If string t is concatenated twice, the result is 'bcdbcdbcdbcd' which is equal to the string s.  The string s is divisible by string t. 
+Since it passes the first test, look for the smallest string, u, that can be concatenated to create both strings s and t.
+The string 'bcd' is the smallest string that can be concatenated to create both strings s and t. 
+The length of the string u is 3, which is the integer value to return.
+
+Example 2
+
+s = "bcdbcdbcd"
+t = "bcdbcd"
+
+Sample Output
+-1
+
+If string t is concatenated twice, the result is "bcdbcdbcdbcd" which is greater than string s.  There is an extra "bcd" in the concatenated string.
+
+The string s is not divisible by string t, so return -1.
+
+Example 3
+
+s = 'lrbblrbb'
+t = 'lrbb'
+
+Sample Output
+
+u = 'lrbb' and its length is 4
+
+The number of times u is concatenated to get the string s and t is 2 and 1.
+
+Explanation
+
+If string 'lrbb' is concatenated 2 times, the result is string s, so the string is divisible. If string 'lrbb' is concatenated 1 time, the result is string t. The smallest string that can be concatenated some number of times to get both s and t is 'lrbb' with a length of 4.
+
+Example 4
+
+s = 'rbrb'
+t = 'rbrb'
+
+Sample Output
+
+u = 'rb' and its length is 2
+
+The number of times u is concatenated to get the string s and t is 2 and 2.
+
+Explanation
+
+The strings are equal, so s is divisible by t. If string 'rb' is concatenated 2 times, the result is string s and string t.  This is the smallest string that meets the criteria.
+
+===============================================================================
+
+You are given an m x n binary grid, where each 1 represents a brick and 0 represents an empty space. A brick is stable if:
+
+It is directly connected to the top of the grid, or
+At least one other brick in its four adjacent cells is stable.
+You are also given an array hits, which is a sequence of erasures we want to apply. Each time we want to erase the brick at the location hits[i] = (rowi, coli). The brick on that location (if it exists) will disappear. Some other bricks may no longer be stable because of that erasure and will fall. Once a brick falls, it is immediately erased from the grid (i.e., it does not land on other stable bricks).
+
+Return an array result, where each result[i] is the number of bricks that will fall after the ith erasure is applied.
+
+Note that an erasure may refer to a location with no brick, and if it does, no bricks drop.
+
+Example 1:
+
+Input: grid = [[1,0,0,0],[1,1,1,0]], hits = [[1,0]]
+Output: [2]
+Explanation: Starting with the grid:
+[[1,0,0,0], [1,1,1,0]]
+We erase the underlined brick at (1,0), resulting in the grid:
+[[1,0,0,0], [0,1,1,0]]
+The two underlined bricks are no longer stable as they are no longer connected to the top nor adjacent to another stable brick, so they will fall. The resulting grid is:
+[[1,0,0,0], [0,0,0,0]]
+Hence the result is [2].
+Example 2:
+
+Input: grid = [[1,0,0,0],[1,1,0,0]], hits = [[1,1],[1,0]]
+Output: [0,0]
+Explanation: Starting with the grid:
+[[1,0,0,0],  [1,1,0,0]]
+We erase the underlined brick at (1,1), resulting in the grid:
+[[1,0,0,0], [1,0,0,0]]
+All remaining bricks are still stable, so no bricks fall. The grid remains the same:
+[[1,0,0,0], [1,0,0,0]]
+Next, we erase the underlined brick at (1,0), resulting in the grid:
+[[1,0,0,0], [0,0,0,0]]
+Once again, all remaining bricks are still stable, so no bricks fall.
+Hence the result is [0,0].
+
+
+=============================================================================== 
+
+You are given an array of integers stones where stones[i] is the weight of the ith stone.
+
+We are playing a game with the stones. On each turn, we choose the heaviest two stones and smash them together. Suppose the heaviest two stones have weights x and y with x <= y. The result of this smash is:
+
+If x == y, both stones are destroyed, and
+If x != y, the stone of weight x is destroyed, and the stone of weight y has new weight y - x.
+At the end of the game, there is at most one stone left.
+
+Return the weight of the last remaining stone. If there are no stones left, return 0.
+
+Example 1:
+
+Input: stones = [2,7,4,1,8,1]
+Output: 1
+Explanation: 
+We combine 7 and 8 to get 1 so the array converts to [2,4,1,1,1] then,
+we combine 2 and 4 to get 2 so the array converts to [2,1,1,1] then,
+we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
+we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of the last stone.
+Example 2:
+
+Input: stones = [1]
+Output: 1
+
+===============================================================================
+
+Given N balls in a line, each ball colored either red or blue. Now, you can perform following procedure arbitrary number of times.
+
+For any pair of consecutive balls, if one ball is red and other ball is blue, Remove both balls from the line and insert a Green colored ball at their position.
+What is the maximum number of green balls you can obtain after applying this operation any number of times (including zero)?
+
+Input:
+A single Integer in first line T denote number of test cases.
+Every test case consist of two lines.
+First line contains an integer N representing number of balls.
+Second line consist of a string of length N consisting of letters 'R' and 'B' only, for Red and Blue ball respectively.
+Output:
+For each test case, output in a single line the maximum number of green balls possible.
+
+Each string contains characters 'R' and 'B' only.
+
+Sample Input:
+1
+8
+BRRRRBRB
+
+Sample Output:
+3
+
+EXPLANATION:
+Pair of balls (1, 2), (5,6) and (7,8) merge to form 3 Green balls.
+
+===============================================================================
+
+A storekeeper is a game in which the player pushes boxes around in a warehouse trying to get them to target locations.
+
+The game is represented by an m x n grid of characters grid where each element is a wall, floor, or box.
+
+Your task is to move the box 'B' to the target position 'T' under the following rules:
+
+The character 'S' represents the player. The player can move up, down, left, right in grid if it is a floor (empty cell).
+The character '.' represents the floor which means a free cell to walk.
+The character '#' represents the wall which means an obstacle (impossible to walk there).
+There is only one box 'B' and one target cell 'T' in the grid.
+The box can be moved to an adjacent free cell by standing next to the box and then moving in the direction of the box. This is a push.
+The player cannot walk through the box.
+Return the minimum number of pushes to move the box to the target. If there is no way to reach the target, return -1.
+
+Input: grid = [["#","#","#","#","#","#"],
+               ["#","T","#","#","#","#"],
+               ["#",".",".","B",".","#"],
+               ["#",".","#","#",".","#"],
+               ["#",".",".",".","S","#"],
+               ["#","#","#","#","#","#"]]
+Output: 3
+Explanation: We return only the number of times the box is pushed.
+Example 2:
+
+Input: grid = [["#","#","#","#","#","#"],
+               ["#","T","#","#","#","#"],
+               ["#",".",".","B",".","#"],
+               ["#","#","#","#",".","#"],
+               ["#",".",".",".","S","#"],
+               ["#","#","#","#","#","#"]]
+Output: -1
+Example 3:
+
+Input: grid = [["#","#","#","#","#","#"],
+               ["#","T",".",".","#","#"],
+               ["#",".","#","B",".","#"],
+               ["#",".",".",".",".","#"],
+               ["#",".",".",".","S","#"],
+               ["#","#","#","#","#","#"]]
+Output: 5
+Explanation: push the box down, left, left, up and up.
+
+===============================================================================
+
+There is a ball in a maze with empty spaces and walls. The ball can go through empty spaces by rolling up,down,left or right, but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction.
+Given the ball's start position, the destination and the maze, find the shortest distance for the ball to stop at the destination. The distance is defined by the number of empty spacestraveled by the ball from the start position (excluded) to the destination (included). If the ball cannot stop at the destination, return -1.
+The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty space. You may assume that the borders of the maze are all walls. The start and destination coordinates are represented by row and column indexes.
+Example 1:
+Input 1: a maze represented by a 2D array
+
+0 0 1 0 0
+0 0 0 0 0
+0 0 0 1 0
+1 1 0 1 1
+0 0 0 0 0
+
+Input 2: start coordinate (rowStart, colStart) = (0, 4)
+Input 3: destination coordinate (rowDest, colDest) = (4, 4)
+
+Output: 12
+
+Explanation: One shortest way is : left -> down -> left -> down -> right -> down -> right.
+             The total distance is 1 + 1 + 3 + 1 + 2 + 2 + 2 = 12.
+Example 2:
+Input 1: a maze represented by a 2D array
+
+0 0 1 0 0
+0 0 0 0 0
+0 0 0 1 0
+1 1 0 1 1
+0 0 0 0 0
+
+Input 2: start coordinate (rowStart, colStart) = (0, 4)
+Input 3: destination coordinate (rowDest, colDest) = (3, 2)
+
+Output: -1
+
+Explanation: There is no way for the ball to stop at the destination.
+Note:
+There is only one ball and one destination in the maze.
+Both the ball and the destination exist on an empty space, and they will not be at the same position initially.
+The given maze does not contain border (like the red rectangle in the example pictures), but you could assume the border of the maze are all walls.
+The maze contains at least 2 empty spaces, and both the width and height of the maze won't exceed 100. 
+
+===============================================================================
+
+Given an array of n elements, write an algorithm to rotate it right by k element without using any other array. In other words rotate an array in place.
+
+Given an array, rotate the array to the right by k steps, where k is non-negative.
+Example 1:
+Input: [1,2,3,4,5,6,7] and k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+Example 2:
+Input: [-1,-100,3,99] and k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+
+===============================================================================
+
+Given a non-empty string, encode the string such that its encoded length is the shortest.
+The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times.
+Note:
+k will be a positive integer and encoded string will not be empty or have extra space.
+You may assume that the input string contains only lowercase English letters. The string's length is at most 160.
+If an encoding process does not make the string shorter, then do not encode it. If there are several solutions, return any of them is fine.
+Example 1:
+Input: "aaa"
+Output: "aaa"
+Explanation: There is no way to encode it such that it(3[a]) is not shorter than the input string, so we do not encode it.
+Example 2:
+Input: "aaaaa"
+Output: "5[a]"
+Explanation: "5[a]" is shorter than "aaaaa" by 1 character.
+Example 3:
+Input: "aaaaaaaaaa"
+Output: "10[a]"
+Explanation: "a9[a]" or "9[a]a" are also valid solutions, both of them have the same length = 5, which is the same as "10[a]".
+Example 4:
+Input: "aabcaabcd"
+Output: "2[aabc]d"
+Explanation: "aabc" occurs twice, so one answer can be "2[aabc]d".
+Example 5:
+Input: "abbbabbbcabbbabbbc"
+Output: "2[2[abbb]c]"
+Explanation: "abbbabbbc" occurs twice, but "abbbabbbc" can also be encoded to "2[abbb]c", so one answer can be "2[2[abbb]c]".
+===============================================================================
+
+You have three stacks of cylinders where each cylinder has the same diameter, but they may vary in height. You can change the height of a stack by removing and discarding its topmost cylinder any number of times.
+Find the maximum possible height of the stacks such that all of the stacks are exactly the same height. This means you must remove zero or more cylinders from the top of zero or more of the three stacks until they're all the same height, then print the height. The removals must be performed in such a way as to maximize the height.
+Note: An empty stack is still a stack.
+Input Format
+The first line contains three space-separated integers, n1, n2, and n3, describing the respective number of cylinders in stacks 1, 2, and 3. The subsequent lines describe the respective heights of each cylinder in a stack from top to bottom:
+The second line contains n1 space-separated integers describing the cylinder heights in stack 1.
+The third line contains n2 space-separated integers describing the cylinder heights in stack 2.
+The fourth line contains n3 space-separated integers describing the cylinder heights in stack 3.
+
+Output Format
+Print a single integer denoting the maximum height at which all stacks will be of equal height.
+Sample Input
+5 3 4
+3 2 1 1 1
+4 3 2
+1 1 4 1
+Sample Output
+5
+ 
+
+
+
+
+
+
+

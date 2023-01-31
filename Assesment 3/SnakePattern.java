@@ -19,7 +19,7 @@ class SnakePattern
 	
 	int offset = (row - 1) + (row - 2);
 
-    for (int j = 0; j < row; j++) 
+    for (int j = 0; j <= row; j++) 
 	{
 		for (int i = 0; i < str.length(); i += offset + 1) 
 		{

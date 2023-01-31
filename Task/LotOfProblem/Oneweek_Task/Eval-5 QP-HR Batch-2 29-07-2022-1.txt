@@ -1,0 +1,131 @@
+
+1. You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+
+Find out how many ways to assign symbols to make sum of integers equal to target S.
+
+Example 1:
+
+Input: nums is [1, 1, 1, 1, 1], S is 3. 
+Output: 5
+Explanation: 
+
+-1+1+1+1+1 = 3
++1-1+1+1+1 = 3
++1+1-1+1+1 = 3
++1+1+1-1+1 = 3
++1+1+1+1-1 = 3
+
+There are 5 ways to assign symbols to make the sum of nums be target 3.
+
+====================================================
+2. Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
+
+Example:
+
+Input:
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+Output:  [1,2,4,7,5,3,6,8,9]
+
+====================================================
+3. Given an n sized unsorted array, find median and mode using counting sort technique. This can be useful when array elements are in limited range.
+
+Example-1:  
+
+Input : array a[] = {1, 1, 1, 2, 7, 1}
+Output : Mode = 1
+Auxiliary(count) array before summing its previous counts, c[]: 
+Index: 0 1 2 3 4 5 6 7 8 9 10 
+count: 0 4 1 0 0 0 0 1 0 0 0
+Mode = 1
+
+Example-2:    
+Input : array a[] = {9, 9, 9, 9, 9}
+Output : Mode = 9       
+Auxiliary(count) array before summing its previous counts, c[]: 
+Index: 0 1 2 3 4 5 6 7 8 9 10 
+count: 0 0 0 0 0 0 0 0 0 5 0
+Mode = 9
+
+====================================================
+4. Given a circular array (the next element of the last element is the first element of the array), print the Next Greater Number for every element. The Next Greater Number of a number x is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, output -1 for this number.
+
+Example 1:
+
+Input: [1,2,1]
+Output: [2,-1,2]
+Explanation: The first 1's next greater number is 2; 
+The number 2 can't find next greater number; 
+The second 1's next greater number needs to search circularly, which is also 2.
+
+====================================================
+
+5. Given two sorted arrays, a[] and b[], the task is to find the median of these sorted arrays, in O(log n + log m) time complexity, when n is the number of elements in the first array, and m is the number of elements in the second array.
+
+Input: ar1[] = {-5, 3, 6, 12, 15}
+        ar2[] = {-12, -10, -6, -3, 4, 10}
+Output : The median is 3.
+Explanation : The merged array is :
+        ar3[] = {-12, -10, -6, -5 , -3,
+                 3, 4, 6, 10, 12, 15},
+       So the median of the merged array is 3
+
+Input: ar1[] = {2, 3, 5, 8}
+        ar2[] = {10, 12, 14, 16, 18, 20}
+Output : The median is 11.
+Explanation : The merged array is :
+        ar3[] = {2, 3, 5, 8, 10, 12, 14, 16, 18, 20}
+        if the number of the elements are even, 
+        so there are two middle elements,
+        take the average between the two :
+        (10 + 12) / 2 = 11.
+
+====================================================
+6. You are given n balloons, indexed from 0 to n - 1. Each balloon is painted with a number on it represented by an array nums. You are asked to burst all the balloons.
+
+If you burst the ith balloon, you will get nums[i - 1] * nums[i] * nums[i + 1] coins. If i - 1 or i + 1 goes out of bounds of the array, then treat it as if there is a balloon with a 1 painted on it.
+
+Return the maximum coins you can collect by bursting the balloons wisely.
+
+ 
+
+Example 1:
+
+Input: nums = [3,1,5,8]
+Output: 167
+Explanation:
+nums = [3,1,5,8] --> [3,5,8] --> [3,8] --> [8] --> []
+coins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167
+Example 2:
+
+Input: nums = [1,5]
+Output: 10
+
+====================================================
+7. You have n boxes. You are given a binary string boxes of length n, where boxes[i] is '0' if the ith box is empty, and '1' if it contains one ball.
+
+In one operation, you can move one ball from a box to an adjacent box. Box i is adjacent to box j if abs(i - j) == 1. Note that after doing so, there may be more than one ball in some boxes.
+
+Return an array answer of size n, where answer[i] is the minimum number of operations needed to move all the balls to the ith box.
+
+Each answer[i] is calculated considering the initial state of the boxes.
+
+ 
+
+Example 1:
+
+Input: boxes = "110"
+Output: [1,1,3]
+Explanation: The answer for each box is as follows:
+1) First box: you will have to move one ball from the second box to the first box in one operation.
+2) Second box: you will have to move one ball from the first box to the second box in one operation.
+3) Third box: you will have to move one ball from the first box to the third box in two operations, and move one ball from the second box to the third box in one operation.
+Example 2:
+
+Input: boxes = "001011"
+Output: [11,8,5,4,3,4]
+
+====================================================
