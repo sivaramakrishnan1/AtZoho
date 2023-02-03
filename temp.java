@@ -1,23 +1,22 @@
 import java.util.*;
 import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
 class temp {
-	public static void main(String args[])
+	public static void main(String args[]) throws Exception
 	{
-		temp t = new temp();
-		System.out.println(t.lengthOfLongestSubstring("abcabcbb"));
-	}
-	
-	public int lengthOfLongestSubstring(String s) {
-		int max = -1;
-        int front = 0, end = 1;
+		URL url = new URL("https://stackoverflow.com/questions/6159118/using-java-to-pull-data-from-a-webpage");
+		URLConnection con = url.openConnection();
+		InputStream is = con.getInputStream();
 		
-		while(front < s.length())
-		{
-			int pos = 
-			while()
-		}
-		
-		return max;
-    }
+		try(BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+                String line = null;
+            
+                // read each line and write to System.out
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
+                }
+            }
+	}	
 }
