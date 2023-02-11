@@ -46,6 +46,23 @@ class RubicCube
 		rc.start();
 	}
 	
+	public void move(String move)
+	{
+		Switch(move)
+		{
+			case "top-left":
+			break;
+			
+			case "top-right";
+			break;
+			
+			case "mid-left":
+			case "mid-right":
+			case "mid-up":
+			
+		}
+	}
+	
 	void start()
 	{
 		out : while(true)

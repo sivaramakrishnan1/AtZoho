@@ -1,11 +1,7 @@
-import java.util.*;
-import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
-
 class temp {
-	public static void main(String args[]) throws Exception
+	public static void main(String args[])
 	{
-		System.out.println(-1 % 3);
+		System.out.println("Nadanthuduchu .. ");
 	}	
 }
+
