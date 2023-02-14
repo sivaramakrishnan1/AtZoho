@@ -1,0 +1,325 @@
+Good work!
+
+Qn. 1 : Be cautious about infinite loop when using while loop
+Qn. 2 : Switch is better than if-else to select from a list of choice
+Qn. 3 : Closing the Scanner is important eventhough it is not throwing error. 
+Qn. 4 : Think of trivial inputs and handle it. 
+Qn. 5 : (i) Avoid using random names for variables, use meaningful variable names which explains the use of the that variable. A variable name should be self-explainatory. 
+	    (ii) Avoid using in-built functions for most of the times. 
+Qn. 6 : Good Job !
+Qn. 7 : Try to decrease the number of lines in your code. 
+Qn. 8 : Good Job ! 
+Qn. 9 : For some input range the output will not change. 
+Qn. 10 : Give some edge case inputs to your program and see if it matched the expected output. 
+
+
+// first question
+
+import java.util.*;
+
+class review {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter numbers : ");
+		int num1 = sc.nextInt(), num2 = sc.nextInt();
+		int count = 0;
+		while (num1 != 0 && num2 != 0)
+		// if num1 or num2 becomes negative value, this loop will run infinetely.
+		// it should be while(num1 > 0 && num2 > 0)
+		{
+			// can ignore {} for one line if ... else ...
+			if (num1 >= num2) {
+				num1 = num1 - num2; // can use num1 -= num2;
+			} else {
+				num2 = num2 - num1;
+			}
+			count++;
+		}
+		System.out.println(count);
+	}
+}
+
+
+// Second question
+
+import java.util.*;
+
+public class review {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(), x = 0;
+		sc.nextLine();
+		String[] s = new String[n];
+		for (int i = 0; i < n; i++) {
+			s[i] = sc.nextLine();
+			if (s[i].equals("++x") || s[i].equals("x++"))
+				x = x + 1;
+			// anything except "++x" or "x++" will decrement the value by one.
+			// For user input "+x" or "++x++" will also decrement the value
+			else // should use "else if (s[i].equals("--x") || s[i].equals("x--")) x -= 1;"
+				x = x - 1;
+
+			// instead of the if-else part, switch-case can be used.
+			/*
+			 * switch(sc.nextLine())
+			 * {
+			 * case "++x" : x++; break;
+			 * case "x++" : ++x; break;
+			 * case "--x" : --x; break;
+			 * case "x--" : x--; break;
+			 * default : System.out.println("Illegal command");
+			 * }
+			 */
+		}
+		System.out.print(x);
+	}
+}
+
+// third question
+import java.util.*; // import the specific package, like " import java.util.Scanner; "
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); // If you do not close the Scanner then Java will not garbage collect the Scanner object 
+		// and you will have a memory leak in your program: 
+		int n = sc.nextInt(), f = 1, s = 1, t = 0;
+		if (n == 0)
+			System.out.print("no of ways: " + n);
+		else {
+			for (int i = 1; i <= n; i++) {
+				t = f + s;
+				f = s;
+				s = t;
+			}
+			System.out.print("no of ways: " + f);
+		}
+	}
+}
+
+
+// fourth question
+import java.util.*;
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt(), b = sc.nextInt(), c;
+		/*
+		 if(a == 0) 
+		 {
+			System.out.println(b); 
+			return;
+		 }
+		 else if(b == 0)
+		 {
+			System.out.println(a); 
+			return;
+		 }
+		 */
+		while (b != 0) 
+		{
+			c = (a & b) << 1;
+			a ^= b;
+			b = c;
+		}
+		System.out.print(a);
+	}
+}
+
+// fifth question
+import java.util.*;
+
+// Avoid using random names for variables, use meaningful variable names which explains the use of the that variable
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] a = new int[10];
+		int[] b = new int[3];
+		int[] z = new int[3];
+		for (int i = 0; i < 10; i++)
+			a[i] = sc.nextInt();
+		for (int i = 0; i < 3; i++) {
+			b[i] = sc.nextInt();
+			String s = String.valueOf(b[i]), str = ""; // instead of String.valueOf() , b[i] + "" will convert that int to String. 
+ 			char[] c = s.toCharArray();
+
+			for (int j = 0; j < c.length; j++) 
+			{
+				int n = Integer.parseInt(String.valueOf(c[j]));
+				str = str + String.valueOf(a[n]);
+				System.out.println(n + " " + " " + str);
+			}
+			z[i] = Integer.parseInt(str);
+		}
+		for (int i = 0; i < 3; i++) {
+			for (int j = i + 1; j < 3; j++) {
+				if (z[i] > z[j]) {
+					int x = z[i];
+					int y = b[i];
+					z[i] = z[j];
+					b[i] = b[j];
+					z[j] = x;
+					b[j] = y;
+				}
+			}
+		}
+		for (int i = 0; i < 3; i++) {
+			System.out.print(b[i] + " ");
+		}
+	}
+}
+
+// sixth question
+import java.util.*;
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(), j, k = 0, i = 0;
+		boolean b = false;
+		while (i != n) {
+			k++;
+			j = k;
+			while (j != 0 && j != 1) 
+			{
+				if (j % 2 == 0)
+					j = j / 2;
+				else if (j % 3 == 0)
+					j = j / 3;
+				else if (j % 5 == 0)
+					j = j / 5;
+				else
+					j = 0;
+			}
+			if (j == 0)
+				b = false;
+			if (j == 1)
+				b = true;
+			if (b == true)
+				i++;
+		}
+		System.out.print(k);
+	}
+}
+
+// seventh question
+import java.util.*;
+// *** MEANING FULL VARIABLE ARE MUST. THE VARAIBLE NAME SHOULD BE SELF EXPLAINATORY. ***
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		String st = String.valueOf(n); // try to avoid using inbuilt functions for simple works. n + "" will convert n to string. 
+		char[] c = st.toCharArray(); // char[] c = (n + "").toCharArray(); will work fine. String st space is saved. 
+		int i, j, len = c.length;
+		for (i = len - 1; i > 0; i--) {
+			if (c[i - 1] < c[i])
+				break;
+		}
+		if (i == 0)
+			System.out.print("-1");
+		else {
+			int x = c[i - 1], s = i;
+			for (j = i + 1; j < len; j++)
+				if (c[j] > x && c[j] <= c[s])
+					s = j;
+			char t = c[i - 1];
+			c[i - 1] = c[s];
+			c[s] = t;
+			for (int a = i; a < len; a++) {
+				for (int b = a + 1; b < len; b++) {
+					if (c[a] > c[b]) {
+						char q = c[a];
+						c[a] = c[b];
+						c[b] = q;
+					}
+				}
+			}
+			for (int k = 0; k < len; k++)
+				System.out.print(c[k]);
+		}
+	}
+}
+
+// Eigth question
+import java.util.*;
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt(), count = 0;
+		for (int i = 0; i * b <= a; i++)
+			count += (a - (i * b)) / c + 1;
+		System.out.print(count);
+	}
+}
+
+// Ninth question
+import java.util.*;
+
+public class week1_qn9 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(), j, count = 0;
+		/*
+		 if(n < 10) {
+			System.out.println(1); 
+			return;
+		}
+		 */
+		for (int i = 1; i <= n; i++) {
+			j = i;
+			while (j != 0) {
+				if (j % 10 == 1)
+					count++;
+				j = j / 10;
+			}
+		}
+		System.out.print(count);
+	}
+}
+
+// tenth question
+import java.util.*;
+
+public class review {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		// for inputs like 100, 1000, and more .. there is a trailing "Zero" as output, which is wrong. 
+		// if(n == 0) System.out.println("Zero"); add this to avoid that
+		System.out.print(s(n));
+	}
+
+	public static String s(int num) {
+		String result = "";
+		String[] ones = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+		String[] tens = new String[] { "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+				"Seventeen", "Eighteen", "Nineteen" };
+		String[] hundred = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty",
+				"Ninety" };
+		
+		// removed 
+		/*
+		if(num == 0)
+		result = "Zero";
+		else */ if (num < 10)
+			result = ones[num];
+		else if (num < 20)
+			result = tens[num - 10];
+		else if (num < 100)
+			result = hundred[num / 10] + " " + s(num % 10);
+		else if (num < 1000)
+			result = s(num / 100) + " Hundred " + s(num % 100);
+		else if (num < 1000000)
+			result = s(num / 1000) + " Thousand " + s(num % 1000);
+		else if (num < 1000000000)
+			result = s(num / 1000000) + " Million " + s(num % 1000000);
+		else
+			result = s(num / 1000000000) + " Billion " + s(num % 1000000000);
+		return result;
+	}
+}
