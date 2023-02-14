@@ -26,7 +26,7 @@ public class DBHandler {
 
 	DBHandler() {
 		try {
-			this.hospital = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "1234");
+			this.hospital = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital", "root", "siva");
 			this.smt = hospital.createStatement();
 
 		} catch (SQLException e) {
@@ -170,7 +170,9 @@ public class DBHandler {
 			return;
 		try {
 			ResultSet res = smt.executeQuery("select fees from doctor where doctor_id = " + id);
-			int amount = res.getInt(1);
+			int amount = 0;
+			if(res.next())
+				amount = res.getInt(1);
 			queryUpdate("insert into bill(appointment_id, amount) values(" + appId + " , " + amount + " )");
 		} catch (SQLException e) {
 			System.out.println(e);

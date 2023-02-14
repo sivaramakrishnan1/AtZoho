@@ -74,7 +74,7 @@ select * from bill;
 
 select bill.bill_id, patient.name, bill.amount from bill
 inner join appointment on bill.appointment_id = appointment.appointment_id
-inner join patient on appointment.patient_id = patient.patient_id where appointment.patient_id = 2;
+inner join patient on appointment.patient_id = patient.patient_id where appointment.patient_id = 1;
 
 select p.name,d.username,a.appointment_id,b.amount from bill as b
 inner join appointment as a on a.appointment_id = b.appointment_id
