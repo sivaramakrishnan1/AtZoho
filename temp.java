@@ -1,9 +1,8 @@
 class temp {
 	public static void main(String args[]) throws Exception
 	{
-		System.out.println(System.currentTimeMillis());
-		Thread.sleep(1);
-		System.out.println(System.currentTimeMillis());
+		for(int i = 0 ; i < 10 ; i++)
+			System.out.print("+-----");
 		
 	}
 }
