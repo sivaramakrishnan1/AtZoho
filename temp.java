@@ -1,8 +1,10 @@
 class temp {
 	public static void main(String args[]) throws Exception
 	{
-		for(int i = 0 ; i < 10 ; i++)
-			System.out.print("+-----");
+		int a = 8, b = 7;
+		double d = (double)a / (double)b;
+		
+		System.out.println(d);
 		
 	}
 }
