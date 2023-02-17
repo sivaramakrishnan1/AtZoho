@@ -1,9 +1,7 @@
 import java.util.Scanner;
 
 class Subset
-{
-	int count = 0;
-	
+{	
 	public static void main(String args[])
 	{
 		Scanner s = new Scanner(System.in);
@@ -26,10 +24,6 @@ class Subset
 	{
 		if(pos >= arr.length) return;
 		
-		count++;
-		
-		System.out.println("Possibility (" + count + ") = " + subsets);
-
 		for(int i = pos+1 ; i < arr.length ; i++)
 			printSubsets(arr, i, subsets + arr[i] + ", ");
 	}
