@@ -40,9 +40,9 @@ class ZEmployee implements Serializable
 		approvalList.add(u);
 	}
 	
-	public boolean authentication(String password)
+	public boolean authentication(String pass)
 	{
-		return this.password.equals(encrypt(password));
+		return this.password.equals(encrypt(pass));
 	}
 	
 	public void processApprovalList()
@@ -75,7 +75,7 @@ class ZEmployee implements Serializable
 				}
 			}
 		}
-		s.close();
+		// s.close();
 	}
 	
 	public void setExchangeRate(double rate)

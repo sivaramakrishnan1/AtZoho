@@ -1,3 +1,4 @@
+import java.util.regex.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,8 +8,8 @@ class Portal implements Serializable
 {
 	static int tidGen = 100, zidGen = 1000;
 	static List<User> accounts = new ArrayList<>();
-	static Scanner s = new Scanner(System.in);
-	ZEmployee ze;
+	Scanner s = new Scanner(System.in);
+	ZEmployee ze = new ZEmployee("admin@zverse.com", "Zverse#1");
 	
 	public void serialize()
 	{
@@ -44,7 +45,7 @@ class Portal implements Serializable
 		}
 	}
 	
-	public void login() throws UserNotFoundException, PasswordMismatchException
+	public void homeLogin() throws UserNotFoundException, PasswordMismatchException
 	{
 		deserialize();
 		
@@ -55,10 +56,15 @@ class Portal implements Serializable
 			{
 				case 1 : 
 				{
-					System.out.print("\nEnter your email : ");
-					String email = s.next();
+					String email, password;
+					
+					do {
+						System.out.print("\nEnter your email : ");
+						email = s.next();
+					}while(!isEmailAddress(email));
+					
 					System.out.print("\nEnter your password : ");
-					String password = s.next();
+					password = s.next();
 					
 					if(!ze.email.equals(email) || !ze.authentication(password)) {
 						throw new UserNotFoundException();
@@ -124,7 +130,6 @@ class Portal implements Serializable
 				System.out.println("Invalid input");
 			}
 		}	
-		
 		serialize();
 	}
 	
@@ -147,8 +152,8 @@ class Portal implements Serializable
 			+ "\n4. View all ZCoins"
 			+ "\n5. View all commisions from each user"
 			+ "\n6. Exit");
-			
-			switch(s.nextInt())
+			int choice = s.nextInt();
+			switch(choice)
 			{
 				case 1 : 
 				{
@@ -217,4 +222,29 @@ class Portal implements Serializable
 		}
 		
 	}
+	
+	boolean isValidPassword(String password)
+	{
+		String[] patterns = {"[a-z]", "[A-Z]", "[0-9]", ".{8,}", "[_-*@#$%&]"};
+		
+		for(int i = 0 ; i < patterns.length ; i++)
+		{
+			Pattern p = Pattern.compile(patterns[i]);
+			Matcher m = p.matcher(password);
+			if(!m.find()) {
+				System.out.println("Password format mismatch. Password must contain lowercase alphabet(s), uppercase alphabet(s), number(s), a special character and must be longer than 5 characters");
+				return false;
+			}
+		}		
+		return true;		
+	}
+	
+	boolean isEmailAddress(String email)
+	{		
+		if(email.matches("[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,6}"))
+			return true;
+		
+		System.out.println("Email format mismatch");		
+		return false;
+	}	
 }
